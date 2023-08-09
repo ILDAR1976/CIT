@@ -57,7 +57,16 @@ namespace EmployeesManagamentFrame
             this.hireDateDataGridViewTextBoxColumn = new EmployeesManagamentFrame.DataGridViewCalendarColumn();
             this.terminationDateDataGridViewTextBoxColumn = new EmployeesManagamentFrame.DataGridViewCalendarColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.filter = new System.Windows.Forms.Button();
+            this.empNumber = new System.Windows.Forms.TextBox();
+            this.department = new System.Windows.Forms.ComboBox();
+            this.departmentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.name = new System.Windows.Forms.TextBox();
             this.departmentsTableAdapter = new EmployeesManagamentFrame.DataSetTableAdapters.DepartmentsTableAdapter();
+            this.depInc = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -66,6 +75,7 @@ namespace EmployeesManagamentFrame
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // employeesBindingSource
@@ -85,7 +95,7 @@ namespace EmployeesManagamentFrame
             // update
             // 
             this.update.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.update.Location = new System.Drawing.Point(970, -2);
+            this.update.Location = new System.Drawing.Point(970, 3);
             this.update.Name = "update";
             this.update.Size = new System.Drawing.Size(75, 23);
             this.update.TabIndex = 0;
@@ -167,6 +177,14 @@ namespace EmployeesManagamentFrame
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.depInc);
+            this.splitContainer1.Panel2.Controls.Add(this.label3);
+            this.splitContainer1.Panel2.Controls.Add(this.label2);
+            this.splitContainer1.Panel2.Controls.Add(this.label1);
+            this.splitContainer1.Panel2.Controls.Add(this.filter);
+            this.splitContainer1.Panel2.Controls.Add(this.empNumber);
+            this.splitContainer1.Panel2.Controls.Add(this.department);
+            this.splitContainer1.Panel2.Controls.Add(this.name);
             this.splitContainer1.Panel2.Controls.Add(this.update);
             this.splitContainer1.Size = new System.Drawing.Size(1057, 364);
             this.splitContainer1.SplitterDistance = 327;
@@ -270,9 +288,86 @@ namespace EmployeesManagamentFrame
             this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(522, 10);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Depart.:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(337, 10);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(62, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Emp. Num.:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(38, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Name:";
+            // 
+            // filter
+            // 
+            this.filter.Location = new System.Drawing.Point(889, 4);
+            this.filter.Name = "filter";
+            this.filter.Size = new System.Drawing.Size(75, 23);
+            this.filter.TabIndex = 4;
+            this.filter.Text = "Filter";
+            this.filter.UseVisualStyleBackColor = true;
+            this.filter.Click += new System.EventHandler(this.filter_Click);
+            // 
+            // empNumber
+            // 
+            this.empNumber.Location = new System.Drawing.Point(403, 7);
+            this.empNumber.Name = "empNumber";
+            this.empNumber.Size = new System.Drawing.Size(113, 20);
+            this.empNumber.TabIndex = 3;
+            // 
+            // department
+            // 
+            this.department.DataSource = this.departmentsBindingSource1;
+            this.department.DisplayMember = "Name";
+            this.department.FormattingEnabled = true;
+            this.department.Location = new System.Drawing.Point(580, 6);
+            this.department.Name = "department";
+            this.department.Size = new System.Drawing.Size(167, 21);
+            this.department.TabIndex = 2;
+            this.department.ValueMember = "ID";
+            // 
+            // departmentsBindingSource1
+            // 
+            this.departmentsBindingSource1.DataMember = "Departments";
+            this.departmentsBindingSource1.DataSource = this.dataSet;
+            // 
+            // name
+            // 
+            this.name.Location = new System.Drawing.Point(45, 6);
+            this.name.Name = "name";
+            this.name.Size = new System.Drawing.Size(275, 20);
+            this.name.TabIndex = 1;
+            // 
             // departmentsTableAdapter
             // 
             this.departmentsTableAdapter.ClearBeforeFill = true;
+            // 
+            // depInc
+            // 
+            this.depInc.AutoSize = true;
+            this.depInc.Location = new System.Drawing.Point(753, 10);
+            this.depInc.Name = "depInc";
+            this.depInc.Size = new System.Drawing.Size(116, 17);
+            this.depInc.TabIndex = 8;
+            this.depInc.Text = "department include";
+            this.depInc.UseVisualStyleBackColor = true;
             // 
             // Employees
             // 
@@ -287,10 +382,12 @@ namespace EmployeesManagamentFrame
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).EndInit();
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel2.ResumeLayout(false);
+            this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -324,5 +421,14 @@ namespace EmployeesManagamentFrame
         private DataGridViewCalendarColumn hireDateDataGridViewTextBoxColumn;
         private DataGridViewCalendarColumn terminationDateDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn statusDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button filter;
+        private System.Windows.Forms.TextBox empNumber;
+        private System.Windows.Forms.ComboBox department;
+        private System.Windows.Forms.TextBox name;
+        private System.Windows.Forms.BindingSource departmentsBindingSource1;
+        private System.Windows.Forms.CheckBox depInc;
     }
 }

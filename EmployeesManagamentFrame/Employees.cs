@@ -40,6 +40,27 @@ namespace EmployeesManagamentFrame
             // Get fresh copy for grid.
             employeesTableAdapter.Fill(this.dataSet.Employees);
         }
+
+        private void filter_Click(object sender, EventArgs e)
+        {
+            string departmentID = department.SelectedValue.ToString();
+            string filterString = "";
+            if (!name.Text.Equals(""))
+                if (filterString.Equals(""))
+                    filterString += "Name Like '%" + name.Text + "%' ";
+            if (!empNumber.Text.Equals(""))
+                if (filterString.Equals(""))
+                    filterString += "EmployeeNumber = " + empNumber.Text;
+                else
+                    filterString += " AND EmployeeNumber = " + empNumber.Text;
+            if (depInc.Checked)
+                if (filterString.Equals(""))
+                    filterString += "DepartmentID = " + departmentID;
+                else
+                    filterString += " AND DepartmentID = " + departmentID;
+
+            employeesBindingSource.Filter = filterString;
+        }
     }
 
     public class DataGridViewCalendarColumn : DataGridViewColumn

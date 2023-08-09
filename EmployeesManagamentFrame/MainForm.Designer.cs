@@ -38,6 +38,8 @@ namespace EmployeesManagamentFrame
             this.departmentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.employeesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.mainToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mainMenuStrip.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +71,7 @@ namespace EmployeesManagamentFrame
             this.loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             this.loadToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
             this.loadToolStripMenuItem.Text = "Load";
+            this.loadToolStripMenuItem.Click += new System.EventHandler(this.loadToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -94,22 +97,35 @@ namespace EmployeesManagamentFrame
             // departmentsToolStripMenuItem
             // 
             this.departmentsToolStripMenuItem.Name = "departmentsToolStripMenuItem";
-            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.departmentsToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.departmentsToolStripMenuItem.Text = "Departments";
             this.departmentsToolStripMenuItem.Click += new System.EventHandler(this.departmentsToolStripMenuItem_Click);
             // 
             // employeesToolStripMenuItem
             // 
             this.employeesToolStripMenuItem.Name = "employeesToolStripMenuItem";
-            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.employeesToolStripMenuItem.Size = new System.Drawing.Size(142, 22);
             this.employeesToolStripMenuItem.Text = "Employees";
             this.employeesToolStripMenuItem.Click += new System.EventHandler(this.employeesToolStripMenuItem_Click);
             // 
             // reportToolStripMenuItem
             // 
+            this.reportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mainToolStripMenuItem});
             this.reportToolStripMenuItem.Name = "reportToolStripMenuItem";
             this.reportToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.reportToolStripMenuItem.Text = "Report";
+            // 
+            // dataOpenFileDialog
+            // 
+            this.dataOpenFileDialog.FileName = "dataOpenFileDialog";
+            // 
+            // mainToolStripMenuItem
+            // 
+            this.mainToolStripMenuItem.Name = "mainToolStripMenuItem";
+            this.mainToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.mainToolStripMenuItem.Text = "Main";
+            this.mainToolStripMenuItem.Click += new System.EventHandler(this.mainToolStripMenuItem_Click);
             // 
             // MainForm
             // 
@@ -139,6 +155,8 @@ namespace EmployeesManagamentFrame
         private System.Windows.Forms.ToolStripMenuItem departmentsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem employeesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem reportToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog dataOpenFileDialog;
+        private System.Windows.Forms.ToolStripMenuItem mainToolStripMenuItem;
     }
 }
 
