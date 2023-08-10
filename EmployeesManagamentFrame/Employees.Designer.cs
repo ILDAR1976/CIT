@@ -57,16 +57,16 @@ namespace EmployeesManagamentFrame
             this.hireDateDataGridViewTextBoxColumn = new EmployeesManagamentFrame.DataGridViewCalendarColumn();
             this.terminationDateDataGridViewTextBoxColumn = new EmployeesManagamentFrame.DataGridViewCalendarColumn();
             this.statusDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.depInc = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.filter = new System.Windows.Forms.Button();
             this.empNumber = new System.Windows.Forms.TextBox();
             this.department = new System.Windows.Forms.ComboBox();
-            this.departmentsBindingSource1 = new System.Windows.Forms.BindingSource(this.components);
+            this.departmentsBindingSourceForFilter = new System.Windows.Forms.BindingSource(this.components);
             this.name = new System.Windows.Forms.TextBox();
             this.departmentsTableAdapter = new EmployeesManagamentFrame.DataSetTableAdapters.DepartmentsTableAdapter();
-            this.depInc = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.employeesBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -75,7 +75,7 @@ namespace EmployeesManagamentFrame
             this.splitContainer1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSourceForFilter)).BeginInit();
             this.SuspendLayout();
             // 
             // employeesBindingSource
@@ -288,6 +288,16 @@ namespace EmployeesManagamentFrame
             this.statusDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.statusDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
+            // depInc
+            // 
+            this.depInc.AutoSize = true;
+            this.depInc.Location = new System.Drawing.Point(753, 10);
+            this.depInc.Name = "depInc";
+            this.depInc.Size = new System.Drawing.Size(116, 17);
+            this.depInc.TabIndex = 8;
+            this.depInc.Text = "department include";
+            this.depInc.UseVisualStyleBackColor = true;
+            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -334,7 +344,7 @@ namespace EmployeesManagamentFrame
             // 
             // department
             // 
-            this.department.DataSource = this.departmentsBindingSource1;
+            this.department.DataSource = this.departmentsBindingSourceForFilter;
             this.department.DisplayMember = "Name";
             this.department.FormattingEnabled = true;
             this.department.Location = new System.Drawing.Point(580, 6);
@@ -343,10 +353,10 @@ namespace EmployeesManagamentFrame
             this.department.TabIndex = 2;
             this.department.ValueMember = "ID";
             // 
-            // departmentsBindingSource1
+            // departmentsBindingSourceForFilter
             // 
-            this.departmentsBindingSource1.DataMember = "Departments";
-            this.departmentsBindingSource1.DataSource = this.dataSet;
+            this.departmentsBindingSourceForFilter.DataMember = "Departments";
+            this.departmentsBindingSourceForFilter.DataSource = this.dataSet;
             // 
             // name
             // 
@@ -358,16 +368,6 @@ namespace EmployeesManagamentFrame
             // departmentsTableAdapter
             // 
             this.departmentsTableAdapter.ClearBeforeFill = true;
-            // 
-            // depInc
-            // 
-            this.depInc.AutoSize = true;
-            this.depInc.Location = new System.Drawing.Point(753, 10);
-            this.depInc.Name = "depInc";
-            this.depInc.Size = new System.Drawing.Size(116, 17);
-            this.depInc.TabIndex = 8;
-            this.depInc.Text = "department include";
-            this.depInc.UseVisualStyleBackColor = true;
             // 
             // Employees
             // 
@@ -387,7 +387,7 @@ namespace EmployeesManagamentFrame
             this.splitContainer1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSource1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.departmentsBindingSourceForFilter)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -428,7 +428,7 @@ namespace EmployeesManagamentFrame
         private System.Windows.Forms.TextBox empNumber;
         private System.Windows.Forms.ComboBox department;
         private System.Windows.Forms.TextBox name;
-        private System.Windows.Forms.BindingSource departmentsBindingSource1;
+        private System.Windows.Forms.BindingSource departmentsBindingSourceForFilter;
         private System.Windows.Forms.CheckBox depInc;
     }
 }
