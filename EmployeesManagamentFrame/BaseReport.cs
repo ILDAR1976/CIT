@@ -249,6 +249,9 @@ namespace EmployeesManagamentFrame
             CultureInfo ci = CultureInfo.InvariantCulture;
             int ret = 0;
 
+            dateFromLoc = dateFromLoc.Substring(6, 4) + "-" + dateFromLoc.Substring(3, 2) + "-" + dateFromLoc.Substring(0, 2);
+            dateToLoc = dateToLoc.Substring(6, 4) + "-" + dateToLoc.Substring(3, 2) + "-" + dateToLoc.Substring(0, 2);
+
             using (SqlConnection connection =
                        new SqlConnection(connectionString))
             {
@@ -265,8 +268,10 @@ namespace EmployeesManagamentFrame
                   "FROM dbo.Employees as e" +
                   " LEFT JOIN dbo.Departments as d ON e.departmentID = d.id WHERE ";
 
-               string queryStringWithDate =  " ( HireDate between @DateFrom AND @DateTo AND " +
+                string queryStringWithDate =  " ( HireDate between @DateFrom AND @DateTo AND " +
                   "TerminationDate between @DateFrom AND @DateTo ) ";
+
+                string queryStringWithDate2 = " ( HireDate between @DateFrom AND @DateTo ) ";
 
                 string queryStringWithNullTerminationDate = " (TerminationDate = '01/01/1900' OR TerminationDate = NULL) ";
 
@@ -274,12 +279,12 @@ namespace EmployeesManagamentFrame
 
                 if (depInc.Checked)
                     if (exactDate.Checked)
-                        queryString += queryStringBase + "(" + queryStringWithDate + " OR " + queryStringWithNullTerminationDate + ")" + queryStringDepartment;
+                        queryString += queryStringBase + "(" + queryStringWithDate2 + " AND " + queryStringWithNullTerminationDate + ")" + queryStringDepartment;
                     else
                         queryString += queryStringBase + queryStringWithDate + queryStringDepartment;
                 else
                     if (exactDate.Checked)
-                    queryString += queryStringBase + "(" + queryStringWithDate + " OR " + queryStringWithNullTerminationDate + ")";
+                    queryString += queryStringBase + "(" + queryStringWithDate2 + " AND " + queryStringWithNullTerminationDate + ")";
                 else
                     queryString += queryStringBase + queryStringWithDate;
 
