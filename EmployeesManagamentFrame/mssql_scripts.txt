@@ -1,0 +1,36 @@
+CREATE DATABASE TEST_CIT
+COLLATE Cyrillic_General_100_CI_AI
+GO
+
+
+USE [TEST_CIT];
+
+
+CREATE TABLE Departments (
+    ID INT IDENTITY (1,1) NOT NULL,
+    Name NVARCHAR(50) NOT NULL,
+    ParentDepartmentID INT NULL,
+    ManagerID INT NULL,
+    Status NVARCHAR(10) NOT NULL,
+    PRIMARY KEY (ID ASC)
+);
+
+CREATE TABLE Employees (
+    ID INT IDENTITY (1,1) NOT NULL,
+    Name NVARCHAR(50) NOT NULL,
+    EmployeeNumber NVARCHAR(10) NOT NULL,
+    Position NVARCHAR(50) NOT NULL,
+    DepartmentID INT NOT NULL,
+    Email NVARCHAR(50) NULL,
+    Phone NVARCHAR(20) NULL,
+    HireDate DATETIME NOT NULL,
+    TerminationDate DATETIME NULL,
+    Status NVARCHAR(10) NOT NULL,
+    PRIMARY KEY (ID ASC)
+
+);
+
+ALTER TABLE Departments ADD CONSTRAINT FK_Departments_ParentDepartmentID FOREIGN KEY (ParentDepartmentID) REFERENCES Departments (ID);
+ALTER TABLE Departments ADD CONSTRAINT FK_Departments_ManagerID FOREIGN KEY (ManagerID) REFERENCES Employees (ID);
+ALTER TABLE Employees ADD CONSTRAINT FK_Employees_DepartmentID FOREIGN KEY (DepartmentID) REFERENCES Departments (ID);
+
