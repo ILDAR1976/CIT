@@ -288,7 +288,7 @@ namespace EmployeesManagamentFrame
                 else
                     queryString += queryStringBase + queryStringWithDate;
 
-                queryString += " ORDER BY d.Name, e.Name, e.HireDate ASC ";
+                queryString += " AND d.Status = 'Active' AND e.Status = 'Active' ORDER BY d.Name, e.Name, e.HireDate ASC ";
 
                 SqlCommand command = new SqlCommand(queryString, connection);
 
