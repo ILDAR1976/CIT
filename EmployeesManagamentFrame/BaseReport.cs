@@ -272,19 +272,17 @@ namespace EmployeesManagamentFrame
                   "TerminationDate between @DateFrom AND @DateTo ) ";
 
                 string queryStringWithDate2 = " ( HireDate between @DateFrom AND @DateTo ) ";
-
-                string queryStringWithNullTerminationDate = " (TerminationDate = '01/01/1900' OR TerminationDate = NULL) ";
-
+                
                 string queryStringDepartment = " AND DepartmentID = @Department";
 
                 if (depInc.Checked)
                     if (exactDate.Checked)
-                        queryString += queryStringBase + "(" + queryStringWithDate2 + " AND " + queryStringWithNullTerminationDate + ")" + queryStringDepartment;
+                        queryString += queryStringBase + queryStringWithDate2 + queryStringDepartment;
                     else
                         queryString += queryStringBase + queryStringWithDate + queryStringDepartment;
                 else
                     if (exactDate.Checked)
-                    queryString += queryStringBase + "(" + queryStringWithDate2 + " AND " + queryStringWithNullTerminationDate + ")";
+                    queryString += queryStringBase + queryStringWithDate2;
                 else
                     queryString += queryStringBase + queryStringWithDate;
 
